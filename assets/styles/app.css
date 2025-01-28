@@ -27,3 +27,53 @@ body {
     background-color: #343a40 !important; /* Fond gris foncé au survol */
     color: #f8f9fa !important; /* Texte légèrement plus clair au survol */
 }
+
+.custom-navbar {
+    background-color: #343a40 !important; /* Dark background for the navbar */
+    border-bottom: 2px solid #ffc107; /* Yellow border at the bottom */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    color: #ffc107 !important; /* Yellow color for the brand */
+}
+
+.custom-navbar .navbar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-navbar .navbar-nav .nav-item {
+    margin-left: 15px;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: #ffffff !important; /* White color for the links */
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #ffc107 !important; /* Yellow color on hover */
+}
+
+.custom-navbar .nav-item.dropdown .dropdown-menu {
+    background-color: #343a40 !important; /* Dark background for the dropdown menu */
+    border: 1px solid #ffc107 !important; /* Yellow border for the dropdown menu */
+}
+
+.custom-navbar .nav-item.dropdown .dropdown-item {
+    color: #ffffff !important; /* White color for the dropdown items */
+}
+
+.custom-navbar .nav-item.dropdown .dropdown-item:hover {
+    background-color: #ffc107 !important; /* Yellow background on hover */
+    color: #343a40 !important; /* Dark color for the text on hover */
+}

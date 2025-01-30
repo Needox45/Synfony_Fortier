@@ -1,0 +1,9 @@
+{% extends 'home.html.twig' %}
+
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block main_body %}
+<h1>{{ article.titre }}</h1>
+<p>{{ article.texte }}</p>
+<p><small>Published on: {{ article.date|date('Y-m-d H:i:s') }}</small></p>
+{% endblock %}

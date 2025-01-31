@@ -3,7 +3,10 @@
 {% block title %}{{ article.titre }}{% endblock %}
 
 {% block main_body %}
-<h1>{{ article.titre }}</h1>
-<p>{{ article.texte }}</p>
-<p><small>Published on: {{ article.date|date('Y-m-d H:i:s') }}</small></p>
+<div class="article-detail">
+    <h1>{{ article.titre }}</h1>
+    <p class="meta">Published on: {{ article.date|date('Y-m-d H:i:s') }}</p>
+    <p class="meta">Published: {{ article.publie ? 'Yes' : 'No' }}</p>
+    <p>{{ article.texte }}</p>
+</div>
 {% endblock %}

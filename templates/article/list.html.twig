@@ -4,11 +4,24 @@
 
 {% block main_body %}
 <h1>Article List</h1>
-<ul>
-    {% for article in articles %}
-        <li>
-            <a href="{{ path('show_article', {id: article.id}) }}">{{ article.titre }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<table class="article-list">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Published</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td><a href="{{ path('show_article', {id: article.id}) }}">{{ article.titre }}</a></td>
+                <td>{{ article.publie ? 'Yes' : 'No' }}</td>
+                <td>{{ article.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

@@ -77,3 +77,61 @@ body {
     background-color: #ffc107 !important; /* Yellow background on hover */
     color: #343a40 !important; /* Dark color for the text on hover */
 }
+
+/* Styles pour la liste des articles */
+.article-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Centrer la table et ajouter des marges */
+    font-size: 18px;
+    text-align: left;
+    border: 1px solid #ddd; /* Ajouter une bordure autour de la table */
+}
+
+.article-list th, .article-list td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.article-list th {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.article-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.article-list tr:hover {
+    background-color: #ddd;
+}
+
+/* Styles pour la page de détail d'un article */
+.article-detail {
+    max-width: 800px;
+    margin: 20px auto; /* Centrer le bloc et ajouter des marges */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+    background-color: #f8f9fa; /* Couleur de fond */
+}
+
+.article-detail h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Centrer le titre */
+}
+
+.article-detail p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.article-detail .meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+    text-align: center; /* Centrer les métadonnées */
+}

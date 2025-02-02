@@ -24,11 +24,12 @@
         </div>
 
         <div class="messages">
-            {% for messages in app.flashes('success') %}
+            {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
-                    {{ messages }}
+                    {{ message }}
                 </div>
             {% endfor %}
+        </div>
 
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

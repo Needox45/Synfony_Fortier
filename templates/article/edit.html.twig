@@ -6,7 +6,22 @@
 <div class="article-edit">
     <h1>Edit Article</h1>
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="form-group">
+            {{ form_label(form.titre, 'Titre :') }}
+            {{ form_widget(form.titre) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.texte, 'Texte :') }}
+            {{ form_widget(form.texte) }}
+        </div>
+        <div class="form-group form-check">
+            {{ form_widget(form.publie, { 'attr': {'class': 'form-check-input'} }) }}
+            {{ form_label(form.publie, 'Publie :', { 'label_attr': {'class': 'form-check-label'} }) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.date, 'Date :') }}
+            {{ form_widget(form.date) }}
+        </div>
         <button class="btn btn-primary">Save</button>
     {{ form_end(form) }}
 </div>

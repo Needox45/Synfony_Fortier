@@ -232,6 +232,15 @@ body {
     outline: none;
 }
 
+.article-edit .form-group .form-check-input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.article-edit .form-group .form-check-label {
+    margin-left: 5px;
+}
+
 .article-edit .btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -250,3 +259,89 @@ body {
 .article-edit .btn-primary:hover {
     background-color: #0056b3;
 }
+
+
+/* Styles pour la page de création d'un nouvel article */
+.article-new {
+    max-width: 800px;
+    margin: 20px auto; /* Centrer le bloc et ajouter des marges */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+    background-color: #f8f9fa; /* Couleur de fond */
+}
+
+.article-new h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Centrer le titre */
+}
+
+.article-new form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les champs du formulaire */
+}
+
+.article-new .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-new .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.article-new .form-group input,
+.article-new .form-group textarea,
+.article-new .form-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.article-new .form-group input:focus,
+.article-new .form-group textarea:focus,
+.article-new .form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.article-new .form-group .form-check-input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.article-new .form-group .form-check-label {
+    margin-left: 5px;
+}
+
+.article-new .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centrer le bouton */
+}
+
+.article-new .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.article-new .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+

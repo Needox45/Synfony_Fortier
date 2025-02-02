@@ -79,6 +79,7 @@ final class ArticleController extends AbstractController
     }
 
     #[Route('/article/new', name: 'new_article')]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
@@ -121,6 +122,7 @@ final class ArticleController extends AbstractController
 
     
     #[Route('/article/delete/{id}', name: 'delete_article', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
     public function delete(int $id, EntityManagerInterface $entityManager): RedirectResponse
     {
         $article = $entityManager->getRepository(Article::class)->find($id);

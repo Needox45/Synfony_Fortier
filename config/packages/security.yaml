@@ -1,4 +1,17 @@
 security:
+    role_hierarchy:
+        ROLE_ARTICLE_ADMIN: ROLE_USER
+        ROLE_COMM_ADMIN: ROLE_USER
+        ROLE_ADMIN: [ROLE_COMM_ADMIN, ROLE_ARTICLE_ADMIN]
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    access_control:
+        - { path: '^/profile', roles: ROLE_USER }
+        - { path: '^/article/admin', roles: ROLE_ARTICLE_ADMIN }
+        - { path: '^/article/comm/admin', roles: ROLE_COMM_ADMIN }
+        - { path: '^/admin/users', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/admin', roles: ROLE_ADMIN }
+
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     providers:
@@ -27,12 +40,6 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
     security:

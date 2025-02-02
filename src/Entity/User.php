@@ -52,6 +52,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
+
+        // Attribuer le rôle ROLE_SUPER_ADMIN à une adresse email spécifique
+        if ($this->email === 'superadmin@example.com') {
+            $roles[] = 'ROLE_SUPER_ADMIN';
+        }
+
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -78,7 +84,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 }

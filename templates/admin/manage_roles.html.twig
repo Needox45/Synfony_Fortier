@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manage Roles{% endblock %}
+
+{% block body %}
+    <h1>Manage Roles for {{ user.email }}</h1>
+
+    <form action="{{ path('admin_users_roles', {id: user.id}) }}" method="post">
+        <div class="form-group">
+            <label for="roles">Roles</label>
+            <select id="roles" name="roles[]" class="form-control" multiple>
+                <option value="ROLE_USER" {% if 'ROLE_USER' in user.roles %}selected{% endif %}>ROLE_USER</option>
+                <option value="ROLE_ARTICLE_ADMIN" {% if 'ROLE_ARTICLE_ADMIN' in user.roles %}selected{% endif %}>ROLE_ARTICLE_ADMIN</option>
+                <option value="ROLE_COMM_ADMIN" {% if 'ROLE_COMM_ADMIN' in user.roles %}selected{% endif %}>ROLE_COMM_ADMIN</option>
+                <option value="ROLE_ADMIN" {% if 'ROLE_ADMIN' in user.roles %}selected{% endif %}>ROLE_ADMIN</option>
+                <option value="ROLE_SUPER_ADMIN" {% if 'ROLE_SUPER_ADMIN' in user.roles %}selected{% endif %}>ROLE_SUPER_ADMIN</option>
+            </select>
+        </div>
+        <button class="btn btn-primary">Save</button>
+    </form>
+{% endblock %}

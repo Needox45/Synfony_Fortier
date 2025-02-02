@@ -8,9 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use App\Entity\Commentaires;
 use App\Form\ArticleType;
+use App\Form\CommentairesType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 final class ArticleController extends AbstractController
 {
@@ -47,22 +48,33 @@ final class ArticleController extends AbstractController
     }
 
     #[Route('/article/show/{id}', name: 'show_article')]
-    public function show(int $id, EntityManagerInterface $entityManager): Response
+    public function show(int $id, Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = $entityManager->getRepository(Article::class)->find($id);
         if (!$article) {
             throw $this->createNotFoundException('The article does not exist');
         }
 
-        $deleteForm = $this->createFormBuilder()
-            ->setAction($this->generateUrl('delete_article', ['id' => $article->getId()]))
-            ->setMethod('DELETE')
-            ->add('delete', SubmitType::class, ['label' => 'Delete'])
-            ->getForm();
+        $commentaire = new Commentaires();
+        $commentaire->setArticle($article);
+        $commentaire->setDate(new \DateTimeImmutable());
+
+        $form = $this->createForm(CommentairesType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Commentaire ajouté avec succès !');
+
+            return $this->redirectToRoute('show_article', ['id' => $article->getId()]);
+        }
 
         return $this->render('article/show.html.twig', [
             'article' => $article,
-            'delete_form' => $deleteForm->createView(),
+            'commentaires' => $article->getCommentaires(),
+            'form' => $form->createView(),
         ]);
     }
 
@@ -107,13 +119,17 @@ final class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/delete/{id}', name: 'delete_article', methods: ['DELETE'])]
+    
+    #[Route('/article/delete/{id}', name: 'delete_article', methods: ['POST'])]
     public function delete(int $id, EntityManagerInterface $entityManager): RedirectResponse
     {
         $article = $entityManager->getRepository(Article::class)->find($id);
 
         if (!$article) {
             throw $this->createNotFoundException('Article non trouvé');
+        }
+        foreach ($article->getCommentaires() as $comment) {
+            $entityManager->remove($comment);
         }
 
         $entityManager->remove($article);

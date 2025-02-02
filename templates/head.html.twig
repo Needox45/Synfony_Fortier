@@ -1,26 +1,46 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ '/home' }}">MySymfonyApp</a>
+        <a class="navbar-brand" href="{{ path('app_home') }}">MySymfonyApp</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ '/lucky' }}">Lucky</a>
+                    <a class="nav-link" href="{{ path('app_lucky') }}">Lucky</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ '/about' }}">About</a>
+                    <a class="nav-link" href="{{ path('app_about') }}">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="https://localhost/article" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Article
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="https://localhost/article/generate">Generate</a></li>
-                        <li><a class="dropdown-item" href="https://localhost/article/list">List</a></li>
+                        <li><a class="dropdown-item" href="{{ path('generate_article') }}">Generate</a></li>
+                        <li><a class="dropdown-item" href="{{ path('list_article') }}">List</a></li>
                     </ul>
                 </li>
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome, {{ app.user.email }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" aria-expanded="false">
+                            Authentification
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="authDropdown">
+                            <li><a class="dropdown-item" href="{{ path('app_register') }}">S'enregistrer</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

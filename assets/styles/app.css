@@ -4,11 +4,12 @@ body {
 
 
 
+/* Styles pour la barre de navigation */
 .navbar {
     background-color: #1c1c1c !important; /* Fond de la barre de navigation */
 }
 .navbar a {
-    color: #ffffff !important; /* Liens en blanc */
+    color: #000000 !important; /* Liens en noir */
     text-decoration: none;
 }
 .navbar a:hover {
@@ -21,11 +22,26 @@ body {
     border: 1px solid #343a40 !important; /* Bordure sombre */
 }
 .navbar .nav-item.dropdown .dropdown-item {
-    color: #ffffff !important; /* Couleur des éléments du menu */
+    color: #000000 !important; /* Couleur des éléments du menu en noir */
 }
 .navbar .nav-item.dropdown .dropdown-item:hover {
     background-color: #343a40 !important; /* Fond gris foncé au survol */
     color: #f8f9fa !important; /* Texte légèrement plus clair au survol */
+}
+
+/* Styles pour le menu déroulant au survol */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Ajuster la position du menu déroulant */
+}
+
+/* Styles pour le bouton de la barre de navigation */
+.navbar-toggler {
+    border-color: #ffffff !important; /* Couleur de la bordure du bouton */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%288, 8, 8, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important; /* Couleur de l'icône du bouton */
 }
 
 .custom-navbar {
@@ -57,7 +73,7 @@ body {
 }
 
 .custom-navbar .navbar-nav .nav-link {
-    color: #ffffff !important; /* White color for the links */
+    color: #000000 !important; /* Black color for the links */
 }
 
 .custom-navbar .navbar-nav .nav-link:hover {
@@ -70,7 +86,7 @@ body {
 }
 
 .custom-navbar .nav-item.dropdown .dropdown-item {
-    color: #ffffff !important; /* White color for the dropdown items */
+    color: #000000 !important; /* Black color for the dropdown items */
 }
 
 .custom-navbar .nav-item.dropdown .dropdown-item:hover {

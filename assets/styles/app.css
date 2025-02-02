@@ -342,6 +342,61 @@ body {
 
 
 
+/* Styles pour les commentaires */
+.commentaires {
+    margin-top: 30px;
+}
+
+.commentaires h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center; /* Centrer le titre des commentaires */
+}
+
+.commentaires ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.commentaires li {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+}
+
+.commentaires li p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.commentaires li .meta {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+    text-align: right; /* Aligner les métadonnées à droite */
+}
+
+.commentaires h3 {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center; /* Centrer le titre du formulaire d'ajout de commentaire */
+}
+
+.commentaires form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les champs du formulaire */
+}
+
+.commentaires .btn {
+    align-self: center; /* Centrer le bouton */
+}
+
+
 
 
 

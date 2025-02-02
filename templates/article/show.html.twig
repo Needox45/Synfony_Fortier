@@ -18,20 +18,22 @@
         </form>
     </div>
 
-    <h2>Commentaires</h2>
-    <ul>
-        {% for commentaire in commentaires %}
-            <li>
-                <p>{{ commentaire.text }}</p>
-                <p class="meta">Publié le: {{ commentaire.date|date('Y-m-d H:i:s') }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="commentaires">
+        <h2>Commentaires</h2>
+        <ul>
+            {% for commentaire in commentaires %}
+                <li>
+                    <p>{{ commentaire.text }}</p>
+                    <p class="meta">Publié le: {{ commentaire.date|date('Y-m-d H:i:s') }}</p>
+                </li>
+            {% endfor %}
+        </ul>
 
-    <h3>Ajouter un commentaire</h3>
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-primary">Ajouter</button>
-    {{ form_end(form) }}
+        <h3>Ajouter un commentaire</h3>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
 </div>
 {% endblock %}

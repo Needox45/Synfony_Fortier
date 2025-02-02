@@ -135,3 +135,118 @@ body {
     margin-bottom: 20px;
     text-align: center; /* Centrer les métadonnées */
 }
+
+
+/* Styles pour les boutons dans la page de détail d'un article */
+.article-detail .actions {
+    display: flex;
+    justify-content: center; /* Centrer les boutons */
+    gap: 10px; /* Espacement entre les boutons */
+    margin-top: 20px;
+}
+
+.article-detail .actions .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.article-detail .actions .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.article-detail .actions .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.article-detail .actions .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.article-detail .actions .btn-danger:hover {
+    background-color: #c82333;
+}
+
+
+
+.messages {
+    position: fixed;
+    top : 5px;
+    right: 5px;
+    min-width: 350px;
+}
+
+
+/* Styles pour la page d'édition d'un article */
+.article-edit {
+    max-width: 800px;
+    margin: 20px auto; /* Centrer le bloc et ajouter des marges */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+    background-color: #f8f9fa; /* Couleur de fond */
+}
+
+.article-edit h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Centrer le titre */
+}
+
+.article-edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les champs du formulaire */
+}
+
+.article-edit .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-edit .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.article-edit .form-group input,
+.article-edit .form-group textarea,
+.article-edit .form-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.article-edit .form-group input:focus,
+.article-edit .form-group textarea:focus,
+.article-edit .form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.article-edit .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centrer le bouton */
+}
+
+.article-edit .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.article-edit .btn-primary:hover {
+    background-color: #0056b3;
+}

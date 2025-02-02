@@ -8,5 +8,12 @@
     <p class="meta">Published on: {{ article.date|date('Y-m-d H:i:s') }}</p>
     <p class="meta">Published: {{ article.publie ? 'Yes' : 'No' }}</p>
     <p>{{ article.texte }}</p>
+
+    <div class="actions">
+        <a href="{{ path('edit_article', {id: article.id}) }}" class="btn btn-primary">Edit</a>
+        {{ form_start(delete_form, {'attr': {'class': 'd-inline'}}) }}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        {{ form_end(delete_form) }}
+    </div>
 </div>
 {% endblock %}

@@ -5,30 +5,35 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
-            {# 'app' must match the first argument to addEntry() in webpacj.config.js #}
-            {{ encore_entry_link_tags('app')}}
-
-            <!-- Renders a link tag (if your module requires any CSS)
-                <link rel="stylesheets" href="/build/app.css"> -->
-        {% endblock %}
-
-        {% block javascripts %}
+            {{ encore_entry_link_tags('app') }}
+            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
-        
-        <div class="head"> 
-            {% include 'head.html.twig'%}
+        <div class="head">
+            {% include 'head.html.twig' %}
         </div>
         
-        <div class="main_body"> 
+        <div class="main_body">
             {% block main_body %}
-            
             {% endblock %}
         </div>
 
-        <div class="footer"> 
-            {% include 'footer.html.twig'%}
+        <div class="footer">
+            {% include 'footer.html.twig' %}
         </div>
+
+        <div class="messages">
+            {% for messages in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ messages }}
+                </div>
+            {% endfor %}
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>
